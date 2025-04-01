@@ -64,7 +64,7 @@ void loop() {
 [<img align="right" alt="servo" width="300" src="https://github.com/user-attachments/assets/2b8eeee4-d67a-4e69-8d25-24c1e578f5e1">](https://www.linkedin.com/posts/arkadip2008_gas-detection-system-activity-7312738420567535616--Y2n)
 
 
-### Output:
+### Output & Video
 
 ```go
 ✅ No gas detected.
