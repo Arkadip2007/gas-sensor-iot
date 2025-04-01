@@ -136,6 +136,8 @@ Add a **JHD162A (16x2 LCD) with an I2C module** to display **live gas levels** f
 
 ### **📜 Arduino Code with I2C LCD Display**  
 
+## ❌ Code 01 with LCD
+
 ```cpp
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
@@ -267,3 +269,55 @@ void loop()
 | --- |
 
 </details>
+
+---
+
+# ❌ code 02 with LCD
+
+```cpp
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Initialize LCD with I2C address (Change 0x27 to 0x3F if needed)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+int gasSensorPin = A0;  // MQ-5 Analog Output
+int threshold = 400;    // Gas detection threshold
+
+void setup() {
+  Serial.begin(9600);    // Initialize serial communication at 9600 baud rate
+  lcd.begin(16, 2);      // Initialize LCD with 16 columns and 2 rows
+  lcd.backlight();       // Turn on LCD backlight
+
+  Serial.println("MQ-5 Gas Sensor Test");
+  lcd.setCursor(0, 0);
+  lcd.print("MQ-5 Sensor Test");
+
+  delay(5000);  // Warm-up time for MQ-5 sensor
+  lcd.clear();
+}
+
+void loop() {
+  int sensorValue = analogRead(gasSensorPin);  // Read the value from the gas sensor
+  
+  // Print values to Serial Monitor for debugging
+  Serial.print("Gas Level: ");
+  Serial.println(sensorValue);
+
+  // Display gas status on LCD
+  lcd.clear();  // Clear the LCD screen before printing new data
+  lcd.setCursor(0, 0);  // Set cursor to the first column of the first row
+  lcd.print("Gas Status:");  // Display static text
+
+  lcd.setCursor(0, 1);  // Move cursor to the first column of the second row
+  if (sensorValue > threshold) {  // Check if gas level exceeds the threshold
+    Serial.println("🚨 GAS DETECTED!");
+    lcd.print("🚨 GAS DETECTED!");  // Display gas detected message
+  } else {
+    Serial.println("✅ SAFE");
+    lcd.print("✅ SAFE");  // Display safe message
+  }
+
+  delay(2000);  // Delay for stability before taking another reading
+}
+```
