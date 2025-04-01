@@ -101,7 +101,62 @@ Gas Level (Analog): 61
 
 ---
 
-# add Display
+# add Display 📟
+
+---
+
+<details>
+  <summary style="opacity: 0.85;"><b>✅📟 LED Display Check</b></summary><br>
+  <!-- <div style="display: flex; align-items: center; gap: 10px;" align="center"> -->
+
+![Screenshot (256)](https://github.com/user-attachments/assets/29ec3e39-5bb3-4fa1-a841-228fd8d5b1af)
+
+<img align="right" alt="servo" width="45%" src="https://github.com/user-attachments/assets/a57d6876-6cf3-43a0-a774-8a33723bf9ea">
+
+## Check the Display working or Not?
+
+```cpp
+//YWROBOT
+//Compatible with the Arduino IDE 1.0
+//Library version:1.1
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+void setup()
+{
+  lcd.init();                      // initialize the lcd 
+  lcd.init();
+  // Print a message to the LCD.
+  lcd.backlight();
+  lcd.setCursor(3,0);
+  lcd.print("Hello, world!");
+  lcd.setCursor(2,1);
+  lcd.print("I am ARKADIP");
+   lcd.setCursor(0,2);
+  lcd.print("MAHAPATRA");
+   lcd.setCursor(2,3);
+  lcd.print("04 MARCH, 2025");
+}
+
+
+void loop()
+{
+}
+```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e649d1b7-9742-471b-b64e-d0848bd303ad" alt="Image 1" width="46%" style="margin-right: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/5a671c34-e5a5-4461-ac0c-20c3e398c184" alt="Image 2" width="46%" style="margin-right: 10px;"/>
+</p>
+
+| 👆 [More ways to Text in LCD display](https://github.com/Arkadip2007/LCD-iot/blob/main/README.md) |
+| --- |
+
+</details>
+
+---
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/be92dc37-b063-4132-a6e0-58af4cd97594" alt="Image 1" width="46%" style="margin-right: 10px;"/>
@@ -216,59 +271,6 @@ Gas Level: 650
 - If the LCD **doesn’t display** anything, try changing `0x27` to `0x3F` in `LiquidCrystal_I2C lcd(0x27, 16, 2);`.  
 - The **threshold (`400`)** can be adjusted based on your sensor's response.  
 - Always give the sensor **2-3 minutes of warm-up** for accurate readings.  
-
----
-
-<details>
-  <summary style="opacity: 0.85;"><b>✅ LED Display Check</b></summary><br>
-  <!-- <div style="display: flex; align-items: center; gap: 10px;" align="center"> -->
-
-![Screenshot (256)](https://github.com/user-attachments/assets/29ec3e39-5bb3-4fa1-a841-228fd8d5b1af)
-
-<img align="right" alt="servo" width="45%" src="https://github.com/user-attachments/assets/a57d6876-6cf3-43a0-a774-8a33723bf9ea">
-
-## Check the Display working or Not?
-
-```cpp
-//YWROBOT
-//Compatible with the Arduino IDE 1.0
-//Library version:1.1
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-
-LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
-
-void setup()
-{
-  lcd.init();                      // initialize the lcd 
-  lcd.init();
-  // Print a message to the LCD.
-  lcd.backlight();
-  lcd.setCursor(3,0);
-  lcd.print("Hello, world!");
-  lcd.setCursor(2,1);
-  lcd.print("I am ARKADIP");
-   lcd.setCursor(0,2);
-  lcd.print("MAHAPATRA");
-   lcd.setCursor(2,3);
-  lcd.print("04 MARCH, 2025");
-}
-
-
-void loop()
-{
-}
-```
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e649d1b7-9742-471b-b64e-d0848bd303ad" alt="Image 1" width="46%" style="margin-right: 10px;"/>
-  <img src="https://github.com/user-attachments/assets/5a671c34-e5a5-4461-ac0c-20c3e398c184" alt="Image 2" width="46%" style="margin-right: 10px;"/>
-</p>
-
-| 👆 [More ways to Text in LCD display](https://github.com/Arkadip2007/LCD-iot/blob/main/README.md) |
-| --- |
-
-</details>
 
 ---
 
