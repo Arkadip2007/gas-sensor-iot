@@ -98,3 +98,116 @@ Gas Level (Analog): 142
 ✅ No gas detected.
 Gas Level (Analog): 61
 ```
+
+---
+
+# add Display
+
+Add a **JHD162A (16x2 LCD) with an I2C module** to display **live gas levels** from MQ-5  Gass sensor.  
+
+---
+
+### **🛠️ Components Required:**  
+- **Arduino Uno/Nano**  
+- **MQ-5 Gas Sensor**  
+- **JHD162A (16x2 LCD) with I2C Module**  
+- **Jumper Wires**  
+
+---
+
+### **🔌 Connections:**  
+
+| **Component** | **Arduino Pin** |  
+|-------------|---------------|  
+| **MQ-5 VCC** | **5V** |  
+| **MQ-5 GND** | **GND** |  
+| **MQ-5 A0** | **A0** |  
+| **I2C LCD VCC** | **5V** |  
+| **I2C LCD GND** | **GND** |  
+| **I2C LCD SDA** | **A4 (SDA)** |  
+| **I2C LCD SCL** | **A5 (SCL)** |  
+
+---
+
+### **📜 Arduino Code with I2C LCD Display**  
+
+```cpp
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// LCD setup (default I2C address 0x27 or 0x3F)
+LiquidCrystal_I2C lcd(0x27, 16, 2);  
+
+int gasSensorPin = A0;  // MQ-5 Analog Output
+int threshold = 400;    // Gas detection threshold
+
+void setup() {
+  Serial.begin(9600);
+  lcd.begin();
+  lcd.backlight();  // Turn on LCD backlight
+
+  Serial.println("MQ-5 Gas Sensor Test");
+  lcd.setCursor(0, 0);
+  lcd.print("MQ-5 Sensor Test");
+  lcd.setCursor(0, 1);
+  lcd.print("Warming up...");
+  delay(3000);  // Warm-up time
+}
+
+void loop() {
+  int sensorValue = analogRead(gasSensorPin);
+  
+  // Print values to Serial Monitor
+  Serial.print("Gas Level: ");
+  Serial.println(sensorValue);
+
+  // Display gas level on LCD
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Gas Level: ");
+  lcd.print(sensorValue);
+  
+  // Gas detection message
+  lcd.setCursor(0, 1);
+  if (sensorValue > threshold) {
+    Serial.println("🚨 Gas Detected!");
+    lcd.print("🚨 Gas Detected!");
+  } else {
+    Serial.println("✅ Safe");
+    lcd.print("✅ Safe");
+  }
+
+  delay(2000);  // Delay for stability
+}
+```
+
+---
+
+### **🛠️ How It Works ?**  
+- The **gas level is displayed live** on the LCD screen.  
+- If gas exceeds the **threshold (400)**, it shows **"🚨 Gas Detected!"**.  
+- If the environment is **safe**, it shows **"✅ Safe"**.  
+- The Serial Monitor also prints the same information.  
+
+---
+
+### **📟 LCD Display Output:**  
+#### **Normal Air (Safe Condition)**  
+```
+Gas Level: 180  
+✅ Safe  
+```
+#### **When Gas is Detected (Lighter near sensor)**  
+```
+Gas Level: 650  
+🚨 Gas Detected!  
+```
+
+---
+
+### **🔹 Points to know:**  
+- If the LCD **doesn’t display** anything, try changing `0x27` to `0x3F` in `LiquidCrystal_I2C lcd(0x27, 16, 2);`.  
+- The **threshold (`400`)** can be adjusted based on your sensor's response.  
+- Always give the sensor **2-3 minutes of warm-up** for accurate readings.  
+
+---
