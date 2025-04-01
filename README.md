@@ -217,8 +217,11 @@ Gas Level: 650
 
 ---
 
-<img align="right" alt="servo" width="45%" src="https://github.com/user-attachments/assets/a57d6876-6cf3-43a0-a774-8a33723bf9ea">
+<details>
+  <summary style="opacity: 0.85;"><b>✅ LED Display Check</b></summary><br>
+  <!-- <div style="display: flex; align-items: center; gap: 10px;" align="center"> -->
 
+<img align="right" alt="servo" width="45%" src="https://github.com/user-attachments/assets/a57d6876-6cf3-43a0-a774-8a33723bf9ea">
 
 ## Check the Display working or Not?
 
@@ -258,3 +261,7 @@ void loop()
   <img src="https://github.com/user-attachments/assets/5a671c34-e5a5-4461-ac0c-20c3e398c184" alt="Image 2" width="46%" style="margin-right: 10px;"/>
 </p>
 
+| 👆 [More ways to Text in LCD display](https://github.com/Arkadip2007/LCD-iot/blob/main/README.md) |
+| --- |
+
+</details>
