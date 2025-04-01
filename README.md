@@ -221,6 +221,8 @@ Gas Level: 650
   <summary style="opacity: 0.85;"><b>✅ LED Display Check</b></summary><br>
   <!-- <div style="display: flex; align-items: center; gap: 10px;" align="center"> -->
 
+![Screenshot (256)](https://github.com/user-attachments/assets/29ec3e39-5bb3-4fa1-a841-228fd8d5b1af)
+
 <img align="right" alt="servo" width="45%" src="https://github.com/user-attachments/assets/a57d6876-6cf3-43a0-a774-8a33723bf9ea">
 
 ## Check the Display working or Not?
