@@ -148,7 +148,7 @@ int threshold = 400;    // Gas detection threshold
 
 void setup() {
   Serial.begin(9600);
-  lcd.begin();
+  lcd.begin(16, 2); // Initialize the LCD with 16 columns and 2 rows
   lcd.backlight();  // Turn on LCD backlight
 
   Serial.println("MQ-5 Gas Sensor Test");
