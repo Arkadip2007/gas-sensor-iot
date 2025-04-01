@@ -61,6 +61,9 @@ void loop() {
 }
 ```
 
+[<img align="right" alt="servo" width="300" src="https://github.com/user-attachments/assets/2b8eeee4-d67a-4e69-8d25-24c1e578f5e1">](https://www.linkedin.com/posts/arkadip2008_gas-detection-system-activity-7312738420567535616--Y2n)
+
+
 ### Output:
 
 ```go
@@ -80,4 +83,18 @@ Gas Level (Analog): 132
 Gas Level (Analog): 104
 ✅ No gas detected.
 Gas Level (Analog): 88
+✅ No gas detected.
+Gas Level (Analog): 57
+✅ No gas detected.
+Gas Level (Analog): 47
+✅ No gas detected.
+Gas Level (Analog): 50
+✅ No gas detected.
+Gas Level (Analog): 50
+✅ No gas detected.
+Gas Level (Analog): 569
+🚨 Gas detected!
+Gas Level (Analog): 142
+✅ No gas detected.
+Gas Level (Analog): 61
 ```
